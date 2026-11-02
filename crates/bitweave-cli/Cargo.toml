@@ -1,0 +1,59 @@
+[package]
+name = "bitweave-cli"
+description = "The bitweave command-line wallet and terminal UI"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/bitweave-cli"
+readme = "../../README.md"
+keywords = ["bitcoin", "wallet", "cli", "tui", "regtest"]
+categories = ["cryptography::cryptocurrencies", "command-line-utilities"]
+
+[[bin]]
+name = "bitweave"
+path = "src/main.rs"
+
+[dependencies]
+bitweave = { workspace = true, features = ["rpc", "serde"] }
+clap = { workspace = true }
+anyhow = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+aes-gcm = { workspace = true }
+argon2 = { workspace = true }
+rand = { workspace = true }
+zeroize = { workspace = true }
+rpassword = "7"
+dotenvy = { workspace = true }
+colored = { workspace = true }
+indicatif = { workspace = true }
+ratatui = { workspace = true }
+qrcode = { workspace = true }
+toml = { workspace = true }
+corepc-node = { workspace = true, optional = true }
+tempfile = { workspace = true, optional = true }
+arboard = { version = "3", default-features = false, features = ["wayland-data-control"] }
+base64 = "0.22"
+tui-big-text = "0.8.10"
+
+[features]
+default = ["local-node"]
+# `--node local` and `tui --demo`: the app starts its own regtest bitcoind
+# (downloaded at build time), so nothing needs to be installed.
+local-node = ["dep:corepc-node", "dep:tempfile"]
+
+[dev-dependencies]
+tempfile = { workspace = true }
+assert_cmd = { workspace = true }
+predicates = { workspace = true }
+corepc-node = { workspace = true }
+
+# docs.rs builds offline, so skip the feature that downloads bitcoind at build time.
+[package.metadata.docs.rs]
+no-default-features = true

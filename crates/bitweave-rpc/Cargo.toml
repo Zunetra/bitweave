@@ -1,0 +1,19 @@
+[package]
+name = "bitweave-rpc"
+description = "Bitcoin Core RPC chain backend for bitweave: blocks, broadcast and fee estimates"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/bitweave-rpc"
+readme = "README.md"
+keywords = ["bitcoin", "bitcoin-core", "rpc", "wallet", "regtest"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+bitweave-core = { workspace = true }
+bitcoincore-rpc = { workspace = true }
+tracing = { workspace = true }

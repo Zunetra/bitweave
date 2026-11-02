@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="96" viewBox="0 0 360 96" role="img" aria-label="bitweave">
+  <circle cx="48" cy="48" r="40" fill="#f7931a"/>
+  <text x="48" y="64" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="48" font-weight="700" fill="#ffffff">&#x20BF;</text>
+  <text x="104" y="64" font-family="Helvetica, Arial, sans-serif" font-size="52" font-weight="700" letter-spacing="-1" fill="#f5f5f5">bitweave</text>
+</svg>

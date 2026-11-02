@@ -1,0 +1,23 @@
+[package]
+name = "bitweave-bdk"
+description = "bitweave wallet engine built on bdk_wallet"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/bitweave-bdk"
+readme = "README.md"
+keywords = ["bitcoin", "wallet", "bdk", "psbt", "descriptor"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+bitweave-core = { workspace = true }
+bdk_wallet = { workspace = true }
+zeroize = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
