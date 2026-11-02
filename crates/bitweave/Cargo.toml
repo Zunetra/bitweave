@@ -1,0 +1,31 @@
+[package]
+name = "bitweave"
+description = "Modular, non-custodial Bitcoin toolkit with pluggable wallet engines and chain backends"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/bitweave"
+readme = "../../README.md"
+keywords = ["bitcoin", "wallet", "psbt", "bdk", "descriptor"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+bitweave-core = { workspace = true }
+bitweave-bdk = { workspace = true }
+bitweave-rpc = { workspace = true, optional = true }
+tracing = { workspace = true }
+
+[features]
+default = ["rpc"]
+# Bitcoin Core JSON-RPC backend.
+rpc = ["dep:bitweave-rpc"]
+# serde support for the public data types (used by the CLI's --json output).
+serde = ["bitweave-core/serde"]
+
+[dev-dependencies]
+corepc-node = { workspace = true }
+tempfile = { workspace = true }

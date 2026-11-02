@@ -1,0 +1,27 @@
+[package]
+name = "bitweave-core"
+description = "Engine-agnostic types, traits and errors shared by the bitweave crates"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+repository.workspace = true
+homepage.workspace = true
+rust-version.workspace = true
+documentation = "https://docs.rs/bitweave-core"
+readme = "README.md"
+keywords = ["bitcoin", "wallet", "psbt", "utxo", "descriptor"]
+categories = ["cryptography::cryptocurrencies"]
+
+[dependencies]
+bitcoin = { workspace = true }
+thiserror = { workspace = true }
+zeroize = { workspace = true }
+serde = { workspace = true, optional = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+proptest = { workspace = true }
+
+[features]
+serde = ["dep:serde", "bitcoin/serde"]

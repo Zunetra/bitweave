@@ -1,0 +1,16 @@
+# Shortcuts for working in this repo.
+#
+#   cargo bitweave init              same as: cargo run -p bitweave-cli -- init
+#   cargo bitweave tui --demo
+#   cargo bitweave -- --help         the app's help (cargo bitweave --help also works)
+#
+# Everything after `cargo bitweave` goes to the app. Cargo's own flags go before
+# the alias: `cargo --offline bitweave init`.
+#   cargo alice init               a named wallet: same as cargo bitweave -w alice init
+#   cargo bob address
+#
+# Any other name: cargo bitweave -w <name> ...
+[alias]
+bitweave = "run --quiet -p bitweave-cli --"
+alice = "run --quiet -p bitweave-cli -- --wallet alice"
+bob = "run --quiet -p bitweave-cli -- --wallet bob"

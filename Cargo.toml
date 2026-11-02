@@ -1,0 +1,47 @@
+[workspace]
+resolver = "3"
+members = ["crates/*"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+authors = ["Zunetra"]
+repository = "https://github.com/Zunetra/bitweave"
+homepage = "https://github.com/Zunetra/bitweave"
+# Highest rust-version among the dependencies (ratatui 0.30, time, tui-big-text).
+rust-version = "1.88"
+
+# Every crate pulls versions from here so `bitcoin` resolves to a single 0.32.x
+# across bdk_wallet, bitcoincore-rpc and our own crates. Internal crates carry a
+# version as well as a path because crates.io rejects path-only dependencies.
+[workspace.dependencies]
+bitweave-core = { path = "crates/bitweave-core", version = "0.1.0" }
+bitweave-bdk = { path = "crates/bitweave-bdk", version = "0.1.0" }
+bitweave-rpc = { path = "crates/bitweave-rpc", version = "0.1.0" }
+bitweave = { path = "crates/bitweave", version = "0.1.0" }
+
+bitcoin = { version = "0.32", default-features = false, features = ["std"] }
+bdk_wallet = { version = "3.2", features = ["rusqlite", "keys-bip39"] }
+bitcoincore-rpc = "0.19"
+thiserror = "2"
+zeroize = "1.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+clap = { version = "4.5", features = ["derive", "env"] }
+anyhow = "1"
+corepc-node = { version = "0.12", features = ["download", "29_0"] }
+tempfile = "3"
+tracing = "0.1"
+aes-gcm = "0.10"
+argon2 = "0.5"
+rand = "0.8"
+proptest = "1"
+ratatui = "0.30"
+qrcode = { version = "0.14", default-features = false }
+toml = "1"
+dotenvy = "0.15"
+assert_cmd = "2"
+predicates = "3"
+colored = "3"
+indicatif = "0.18"
